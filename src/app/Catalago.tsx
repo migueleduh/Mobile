@@ -56,7 +56,7 @@ import { View, Text, StyleSheet, Image} from "react-native";
             
             { dataList.map((cars,index) => (
             <View key={index} style={styles.Box} >
-            <Image style={styles.Picture} source={require("../assets/images/corolla.jpg")}></Image>
+            <Image style={styles.Picture} source={require("../../assets/images/corolla.jpg")}></Image>
                 <View>
                     <Text > Model: {cars.name}</Text>
                     <Text >Price: {cars.onSale == true ? <Text style={styles.OnSale}>{cars.price}</Text> : <Text>{cars.price}</Text> }</Text>
