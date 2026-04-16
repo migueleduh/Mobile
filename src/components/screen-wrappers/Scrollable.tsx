@@ -13,7 +13,7 @@ export default function Scrollable({padding = 20, gap, onRefresh, children}:Prop
 
 
             return(<SafeAreaView style={styles.Container}>
-                        <StatusBar></StatusBar>
+                        <StatusBar/>
                         <ScrollView   
                         refreshControl={onRefresh ?  <RefreshControl refreshing={false} onRefresh={onRefresh}/> : undefined}
                         contentContainerStyle={{
