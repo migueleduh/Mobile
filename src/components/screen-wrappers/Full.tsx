@@ -8,17 +8,20 @@ type Props = {
     padding?: number ;
     gap?:number;
     background?: string,
+    justify?:boolean
 
 
 }
 
 
-export default  function FullScreen({padding = 20,gap,children,center,background}:Props){
+export default  function FullScreen({padding = 20,gap,children,center,background,justify}:Props){
     return (
         <SafeAreaView style={[ styles.Container, padding ? {padding: padding} : null,
         gap !== undefined ? {gap: gap} : null,
         center ? {alignItems:"center", justifyContent:"center"} : null,
-        background !== undefined ?  {backgroundColor: background} : null
+        background !== undefined ?  {backgroundColor: background} : null,
+        justify !== undefined ? {justifyContent:"center"} : null
+
         ]}>
 
             <StatusBar style="light" ></StatusBar>

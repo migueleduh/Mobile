@@ -4,8 +4,8 @@ import { useState } from "react";
 
 export default function IndentificationScreen(){
 
-  const [name, setName] = useState("");
-  const [accessAuthorized, setAccess] = useState(false);
+  const [name, setName] = useState<string>("");
+  const [accessAuthorized, setAccess] = useState<boolean>(false);
 
 
   const WellcomeScreen = () => {
@@ -27,7 +27,13 @@ export default function IndentificationScreen(){
         },
         title2:{
             fontSize:30,
-            textAlign: "center"
+            textAlign: "center",
+            fontWeight: "300",
+        },
+        title2Name:{
+            fontWeight: "bold",
+            color: "#007BFF"
+         
         },
         picture:{
             width:200,
@@ -55,7 +61,7 @@ export default function IndentificationScreen(){
         <FullScreen padding={15} background="gray" center>
             <View style={styles.container}>  
                  <Text style={styles.title1}>Access Allowed</Text>
-                 <Text style={styles.title2}>Welcome {name}</Text> 
+                 <Text style={styles.title2}>Welcome, <Text style={styles.title2Name}>{name}</Text> </Text>
                  <Image  style={styles.picture}source={require("../../assets/images/eu.jpg")}></Image>
                <TouchableOpacity style={styles.button} >
                     <Text style={styles.textButton}>Start Tour</Text>

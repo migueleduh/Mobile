@@ -1,21 +1,31 @@
 import FullScreen from "@/components/screen-wrappers/Full";
 import Scrollable from "@/components/screen-wrappers/Scrollable";
-import { View,Text,StyleSheet } from "react-native"
-
-
+import { View,Text,StyleSheet,Button,Image } from "react-native"
+import ParkSensor from "@/components/screens/ParkSensor";
+import { useState } from "react";
 
 export default function mainScreen(){
-    return(
+const [show,setShow] = useState(true)
 
-        /*
-        <FullScreen center={true}>
-             <Text>Bem vindo User</Text>
-             <Text>Esta é a sua Home</Text>
-        </FullScreen>
-        
+if(show){
+      return(<FullScreen padding={50} gap={30}  justify>
+                <ParkSensor></ParkSensor>
+                    <Button title="sair" color={"red"} onPress={() => {setShow(!show)}}/>
+            </FullScreen>
     )
-        */
+    
+}
 
+return(
+    <FullScreen background="gray" center justify gap={20}>
+            <Image style={styles.Picture} source={require("../../assets/images/sensor.png")}></Image>
+            <Button title="Iniciar" onPress={() => { setShow(!show) }}/>
+    </FullScreen>
+)
+  
+
+
+     /*   
     <Scrollable gap={10} onRefresh={() => console.log("atualizado!!")}>
             <Text>Bem vindo User</Text>
              <Text>Esta é a sua Home com Scroll</Text>
@@ -37,13 +47,19 @@ export default function mainScreen(){
                 Still, Warriors fans will be watching with bated breath as they hope that Curry doesn't go down with an injury as he makes a valiant comeback to the team.
             </Text>
     </Scrollable>
+*/
 
-    )
+
 
 }
 
  const styles = StyleSheet.create({
         Text:{
             fontSize: 25,
+        },
+        Picture:{
+            width:200,
+            height:200,
+
         }
     })
